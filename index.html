@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="assests/LOGO.jpg">
+    <title>Sudoku Master | <img src='assests/LOGO.jpg' alt='Sudoku Logo' style='height:1em;vertical-align:middle;'> Sudoku</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title-container">
+                <div class="logo-square-wrapper"><img src="assests/LOGO.jpg" alt="Sudoku Logo" class="logo-animated logo-large-left"></div>
+                <div class="title-text">
+                    <h1>Sudoku Master</h1>
+                    <p class="subtitle">Challenge Your Mind</p>
+                </div>
+                <button id="theme-toggle" class="btn secondary-btn" style="margin-left:2rem;">🌙 Theme</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="game-container">
+                <h2 class="sovereign-title"><span class="sovereign-animate">Board of Sovereign</span></h2>
+                <div class="board-controls" style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+                    <label for="font-family">Font:</label>
+                    <select id="font-family">
+                        <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Default</option>
+                        <option value="'Courier New', Courier, monospace">Monospace</option>
+                        <option value="'Arial', sans-serif">Arial</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                    </select>
+                    <label for="font-size">Size:</label>
+                    <select id="font-size">
+                        <option value="1.2rem">Default</option>
+                        <option value="1.5rem">Large</option>
+                        <option value="2rem">Extra Large</option>
+                    </select>
+                </div>
+                <div class="game-controls">
+                    <div class="difficulty-container">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="timer-container">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="timer">00:00</span>
+                    </div>
+                </div>
+                
+                <div id="sudoku-board" class="sudoku-board"></div>
+                
+                <div class="button-container">
+                    <button id="new-game-btn" class="btn primary-btn">
+                        <i class="fa-solid fa-plus"></i> New Game
+                    </button>
+                    <button id="input-puzzle-btn" class="btn secondary-btn">
+                        <i class="fa-solid fa-pen"></i> Input Puzzle
+                    </button>
+                    <button id="check-btn" class="btn secondary-btn">
+                        <i class="fa-solid fa-check"></i> Check Solution
+                    </button>
+                    <button id="reset-btn" class="btn secondary-btn">
+                        <i class="fa-solid fa-rotate-left"></i> Reset
+                    </button>
+                    <button id="hint-btn" class="btn secondary-btn">
+                        <i class="fa-solid fa-lightbulb"></i> Hint
+                    </button>
+                    <button id="solve-btn" class="btn primary-btn" style="display:none;">
+                        <i class="fa-solid fa-magic"></i> Solve
+                    </button>
+                    <button id="cancel-input-btn" class="btn secondary-btn" style="display:none;">
+                        <i class="fa-solid fa-xmark"></i> Cancel
+                    </button>
+                </div>
+            </div>
+            
+            <div class="stats-container">
+                <h2>Your Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="puzzles-solved">0</div>
+                        <div class="stat-label">Puzzles Solved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="best-time">--:--</div>
+                        <div class="stat-label">Best Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="avg-time">--:--</div>
+                        <div class="stat-label">Average Time</div>
+                    </div>
+                </div>
+                <button id="reset-stats-btn" class="btn text-btn">
+                    <i class="fa-solid fa-trash"></i> Reset Stats
+                </button>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal for messages and confirmations -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-icon" class="modal-icon"></div>
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-message">Message goes here</p>
+            <div class="modal-buttons">
+                <button id="modal-cancel" class="btn secondary-btn">Cancel</button>
+                <button id="modal-confirm" class="btn primary-btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
